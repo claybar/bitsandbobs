@@ -11,6 +11,7 @@ import Foundation
 class CalculatorBrain
 {
     private var accumulator = 0.0
+    private var internalProgram = [AnyObject]()
     
     func setOperand(operand: Double) {
         accumulator = operand
@@ -65,6 +66,26 @@ class CalculatorBrain
     private struct PendingBinaryOperationInfo {
         var binaryFunction: (Double, Double) -> Double
         var firstOperand: Double
+    }
+    
+    typealias PropertyList = AnyObject
+    private var storedProgram: PropertyList?
+    
+    
+    var program: PropertyList? {
+        get {
+            return storedProgram
+        }
+        set {
+            /*
+            if newValue != nil {
+                if let program = newValue as PropertyList? {
+                    if let operand =
+                }
+            }
+            */
+            
+        }
     }
     
     var result: Double {
